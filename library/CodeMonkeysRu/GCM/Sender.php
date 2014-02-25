@@ -79,7 +79,10 @@ class Sender
         );
 
         $ch = curl_init();
+		curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
 
+		curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		
         curl_setopt($ch, CURLOPT_URL, $this->gcmUrl);
 
         curl_setopt($ch, CURLOPT_POST, true);
